@@ -24,17 +24,10 @@ PUT = ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c
 
 STR = ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c
 
-<<<<<<< Updated upstream
 SRC =	$(addprefix input_check/, $(CHECKS)) \
 		$(addprefix memory/, $(MEM)) \
 		$(addprefix misc/, $(MISC)) \
 		$(addprefix put_fd/, $(PUT)) \
-=======
-SRC = $(addprefix input_check/, $(CHECKS))
-		$(addprefix memory/, $(MEM))
-		$(addprefix misc/, $(MISC))
-		$(addprefix put_fd/, $(PUT))
->>>>>>> Stashed changes
 		$(addprefix string_manipulation/, $(STR))
 
 BONUS = $(addprefix lists/, $(LST))
@@ -49,7 +42,8 @@ RM = rm -f
 
 CC = gcc -Wall -Wextra -Werror
 
-.c.o = ${CC} -I ${HDRS} includes -c $< -o ${<:.c=.o}
+%.o: %.c
+	@${CC} -I ${HDRS} -c $< -o $@
 
 %.o: %.c
 	@gcc $(FLAG) -c $< -o $@
