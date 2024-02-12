@@ -1,6 +1,6 @@
 NAME = built_ins
 
-SRCS = builtins/echo.c builtins/test_program.c
+SRCS = builtins/echo.c builtins/cd.c builtins/test_program.c
 
 INCS = builtins/
 

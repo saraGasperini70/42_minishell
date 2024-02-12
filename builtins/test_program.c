@@ -1,8 +1,11 @@
 #include "builtins.h"
+#include <stdio.h>
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	if (ac > 1)
-	ft_echo(av);
+	char	*s1[] = {"echo", "Hello World", NULL};
+	char	*s2[] = {"echo", "-n", "Hollo Worlo", NULL};
+	ft_echo(s1);
+	ft_echo(s2);
 	return(1);
 }

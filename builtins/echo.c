@@ -35,6 +35,6 @@ int	ft_echo(char **args)
 		}
 	}
 	if (options_nb == 0)
-		write (1, "\n", 2);
+		write (1, "\n", 1);
 	return (1);
 }
