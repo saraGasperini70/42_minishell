@@ -19,7 +19,17 @@ typedef struct	s_env
 	struct s_env	*next;
 }	t_env;
 
+# define ERROR 1
+# define SUCCESS 0
+
+# define STDIN 0
+# define STDOUT 1
+# define STDERR 2
+
 int	ft_echo(char **args);
-int	ft_cd(char *str, t_env *env);
+int	ft_cd(char **str, t_env *env);
+
+int	ft_isin_env(t_env *env, char **old_pwd);
+int	ft_env_add(char *old_pwd, t_env *env);
 
 #endif
