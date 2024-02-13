@@ -10,6 +10,7 @@ static void	ft_print_error(char **args)
 		ft_putstr_fd(strerror(errno), 2);
 		ft_putstr_fd(":", 2);
 	}
+	ft_putendl_fd(args[1], 2);
 }
 
 static char	*ft_get_envpath(t_env *env, const char *var, size_t len)
