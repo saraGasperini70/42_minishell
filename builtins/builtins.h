@@ -13,7 +13,7 @@
 # include <errno.h>
 # include <signal.h>
 
-typedef struct	s_env
+typedef struct s_env
 {
 	char			*value;
 	struct s_env	*next;
@@ -26,10 +26,17 @@ typedef struct	s_env
 # define STDOUT 1
 # define STDERR 2
 
-int	ft_echo(char **args);
-int	ft_cd(char **str, t_env *env);
+# define BUFF_SIZE 4096
 
-int	ft_isin_env(t_env *env, char **old_pwd);
-int	ft_env_add(char *old_pwd, t_env *env);
+int		ft_echo(char **args);
+int		ft_cd(char **str, t_env *env);
+
+int		ft_isin_env(t_env *env, char *old_pwd);
+int		ft_env_add(const char *old_pwd, t_env *env);
+char	*ft_get_envname(char *dest, char *src);
+int		ft_export(char **args, t_env *env, t_env *secret);
+
+int		ft_print_sortedenv(t_env *secret);
+int		ft_is_validenv(char *args);
 
 #endif

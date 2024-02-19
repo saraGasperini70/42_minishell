@@ -1,5 +1,4 @@
 #include "builtins.h"
-#include <stdio.h>
 
 int	ft_nb_args(char **args)
 {
@@ -20,7 +19,6 @@ int	ft_echo(char **args)
 	options_nb = 0;
 	if (ft_nb_args(args) > 1)
 	{
-
 		while (args[i] && ft_strncmp(args[i], "-n", ft_strlen(args[i])) == 0)
 		{
 			options_nb = 1;

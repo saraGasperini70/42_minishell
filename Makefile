@@ -1,6 +1,6 @@
 NAME = built_ins
 
-SRCS = builtins/echo.c builtins/cd.c builtins/test_program.c
+SRCS = builtins/echo.c builtins/cd.c builtins/export.c builtins/env/ft_print_sortedenv.c builtins/env/ft_is_validenv.c builtins/test_program.c
 
 INCS = builtins/
 

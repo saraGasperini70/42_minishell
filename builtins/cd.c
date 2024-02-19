@@ -22,19 +22,21 @@ static char	*ft_get_envpath(t_env *env, const char *var, size_t len)
 
 	while (env && env->next != NULL)
 	{
-		alloc_size = ft_strlen(env->value) - len;
-		old_pwd = malloc(sizeof(char) * alloc_size + 1);
-		if (old_pwd == NULL)
-			return (NULL);
-		i = 0;
-		j = 0;
-		while (env->value[i++])
+		if (ft_strncmp(env->value, var, len) == 0)
 		{
-			if (i > (int)len)
-				old_pwd[j++] = env->value[i];
+			alloc_size = ft_strlen(env->value) - len;//old_pwd = malloc(sizeof(char) * alloc_size + 1);
+			if (!(old_pwd = malloc(sizeof(char) * alloc_size + 1)))
+				return (NULL);
+			i = 0;
+			j = 0;
+			while (env->value[i++])
+			{
+				if (i > (int)len)
+					old_pwd[j++] = env->value[i];
+			}
+			old_pwd[j] = '\0';
+			return (old_pwd);
 		}
-		old_pwd[j] = '\0';
-		return (old_pwd);
 		env = env->next;
 	}
 	return (NULL);
@@ -47,10 +49,13 @@ static int	ft_update_oldpwd(t_env *env)
 
 	if (getcwd(cwd, _PC_PATH_MAX) == NULL)
 		return (ERROR);
-	if (!ft_strjoin("OLDPWD=", cwd))
+	old_pwd = ft_strjoin("OLDPWD=", cwd);
+	if (!old_pwd)
 		return (ERROR);
 	if (ft_isin_env(env, old_pwd) == 0)
 		ft_env_add(old_pwd, env);
+	printf("%s\n", old_pwd);
+	printf("%s\n", env->value);
 	ft_memdel(old_pwd);
 	return (SUCCESS);
 }
@@ -88,13 +93,13 @@ int	ft_cd(char **str, t_env *env)
 {
 	int	cd_ret;
 
-	if (!str)
+	if (!str[1])
 		return (ft_goto_path(0, env));
-	if (ft_strncmp(str[1], "-", ft_strlen(str[1])))
+	if (ft_strncmp(str[1], "-", ft_strlen(str[1])) == 0)
 		cd_ret = ft_goto_path(1, env);
 	else
 	{
-		env = ft_update_oldpwd(env);
+		ft_update_oldpwd(env);
 		cd_ret = chdir(str[1]);
 		if (cd_ret < 0)
 			cd_ret *= -1;
