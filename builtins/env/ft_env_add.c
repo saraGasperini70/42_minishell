@@ -6,11 +6,11 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:50:43 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 12:51:07 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:56:21 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../builtins.h"
 
 int	ft_env_add(const char *old_pwd, t_env *env)
 {

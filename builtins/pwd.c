@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_envname.c                                   :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 12:51:46 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:28 by sgasperi         ###   ########.fr       */
+/*   Created: 2024/02/20 13:15:51 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/02/20 13:19:07 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../builtins.h"
+#include "builtins.h"
 
-char	*ft_get_envname(char *dest, char *src)
+void	ft_pwd(t_env *env)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] && src[i] != '=' && ft_strlen(src) < BUFF_SIZE)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	ft_putendl_fd(env->value, STDOUT);
 }

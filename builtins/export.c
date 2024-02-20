@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:34:10 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 12:58:15 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:55:45 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,17 @@ static int	ft_print_error(int error, const char *arg)
 	return (ERROR);
 }
 
-static int	ft_arg_check(char *arg, int new_env, t_env *env)
+static int	ft_arg_check(char *arg, t_env *env, int error_ret)
 {
-	int	error_ret;
-
-	if (arg[0] == '=')
-		error_ret = -3;
+	int	new_env;
+	
 	if (error_ret <= 0)
 		return (ft_print_error(error_ret, arg));
 	if (error_ret == 2)
 		new_env = 1;
 	else
 		new_env = ft_isin_env(env, arg);
+	return (new_env);
 }
 
 int	ft_export(char **args, t_env *env, t_env *secret)
@@ -57,7 +56,9 @@ int	ft_export(char **args, t_env *env, t_env *secret)
 	else
 	{
 		error_ret = ft_is_validenv(args[1]);
-		error_ret = ft_arg_check(args[1], new_env, env);
+		if (args[1][0] == '=')
+			error_ret = -3;
+		new_env = ft_arg_check(args[1], env, error_ret);
 		if (new_env == 0)
 		{
 			if (error_ret == 1)

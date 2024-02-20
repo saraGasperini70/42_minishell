@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:33:58 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 12:48:02 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:19:28 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_env
 # define STDERR 2
 
 # define BUFF_SIZE 4096
+
+void	ft_pwd(t_env *env);
 
 int		ft_echo(char **args);
 char	*ft_alloc_str(int alloc_size);

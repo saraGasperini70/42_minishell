@@ -1,14 +1,14 @@
 NAME = built_ins
 
-SRCS = builtins/echo.c builtins/cd.c builtins/export.c builtins/env/ft_print_sortedenv.c builtins/env/ft_is_validenv.c builtins/test_program.c
+SRCS =	builtins/cd_utils.c builtins/cd.c builtins/echo.c builtins/export.c builtins/pwd.c builtins/env/ft_print_sortedenv.c builtins/env/ft_is_validenv.c builtins/env/ft_env_add.c builtins/env/ft_get_envname.c builtins/env/ft_isin_env.c builtins/test_program.c
 
 INCS = builtins/
 
 OBJS = ${SRCS:.c=.o}
 
-LIBFTDIR = ./libs/libft
+LIBFTDIR = libs/libft
 
-LIBFT = ${LIBFTDIR}/libft.a
+LIBFT = libs/libft/libft.a
 
 CC = gcc -Wextra -Wall -Werror -g
 
@@ -19,7 +19,7 @@ LINKS = -L${LIBFTDIR} -lft
 INCLUDE = -I${LIBFTDIR} -I${INCS}
 
 %.o:%.c
-	${CC} ${INCLUDE} -c $< -o $@ ${LINKS}
+	${CC} -c $< -o $@
 
 all: ${LIBFT} ${NAME}
 

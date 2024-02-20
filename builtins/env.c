@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_envname.c                                   :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 12:51:46 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:28 by sgasperi         ###   ########.fr       */
+/*   Created: 2024/02/20 14:30:02 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/02/20 14:35:23 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../builtins.h"
+#include "builtins.h"
 
-char	*ft_get_envname(char *dest, char *src)
+void	ft_env(t_env *env)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] && src[i] != '=' && ft_strlen(src) < BUFF_SIZE)
+	while (env && env->next != NULL)
 	{
-		dest[i] = src[i];
-		i++;
+		ft_putendl_fd(env->value, STDOUT);
+		env = env->next;
 	}
-	dest[i] = '\0';
-	return (dest);
+	if (env)
+		ft_putendl_fd(env->value, STDOUT);
 }
