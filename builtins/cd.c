@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 12:33:50 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/02/20 12:43:51 by sgasperi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "builtins.h"
 
 static void	ft_print_error(char **args)
@@ -24,9 +36,8 @@ static char	*ft_get_envpath(t_env *env, const char *var, size_t len)
 	{
 		if (ft_strncmp(env->value, var, len) == 0)
 		{
-			alloc_size = ft_strlen(env->value) - len;//old_pwd = malloc(sizeof(char) * alloc_size + 1);
-			if (!(old_pwd = malloc(sizeof(char) * alloc_size + 1)))
-				return (NULL);
+			alloc_size = ft_strlen(env->value) - len;
+			old_pwd = ft_alloc_str(alloc_size);
 			i = 0;
 			j = 0;
 			while (env->value[i++])
