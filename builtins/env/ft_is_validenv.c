@@ -6,10 +6,11 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:34:19 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 12:34:20 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:38:17 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../builtins.h"
 
 int	ft_is_validenv(char *args);
+
