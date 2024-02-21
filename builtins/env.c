@@ -21,4 +21,5 @@ void	ft_env(t_env *env)
 	}
 	if (env)
 		ft_putendl_fd(env->value, STDOUT);
+	return (SUCCESS);
 }

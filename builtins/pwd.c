@@ -14,5 +14,13 @@
 
 void	ft_pwd(t_env *env)
 {
-	ft_putendl_fd(env->value, STDOUT);
+	char cwd[_PC_PATH_MAX];
+
+	if (getcwd(cwd, _PC_PATH_MAX))
+	{
+		ft_putendl_fd(cwd, STDOUT);
+		return (SUCCESS);
+	}
+	else
+		return (ERROR);
 }

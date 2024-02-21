@@ -33,7 +33,7 @@ static int	ft_print_error(int error, const char *arg)
 static int	ft_arg_check(char *arg, t_env *env, int error_ret)
 {
 	int	new_env;
-	
+
 	if (error_ret <= 0)
 		return (ft_print_error(error_ret, arg));
 	if (error_ret == 2)
