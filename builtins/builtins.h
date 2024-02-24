@@ -40,6 +40,8 @@ typedef struct s_env
 
 # define BUFF_SIZE 4096
 
+void	ft_free_alloc(char **matrix);
+
 void	ft_pwd(t_env *env);
 
 int		ft_echo(char **args);
@@ -51,7 +53,9 @@ int		ft_export(char **args, t_env *env, t_env *secret);
 int		ft_isin_env(t_env *env, char *old_pwd);
 int		ft_env_add(const char *old_pwd, t_env *env);
 char	*ft_get_envname(char *dest, char *src);
-int		ft_print_sortedenv(t_env *secret);
+void	ft_print_sortedenv(t_env *env);
 int		ft_is_validenv(char *args);
+char	*ft_env_tostr(t_env *lst);
+int		ft_strenv_len(char **env);
 
 #endif

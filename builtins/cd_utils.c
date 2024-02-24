@@ -21,3 +21,17 @@ char	*ft_alloc_str(int alloc_size)
 		return (NULL);
 	return (old_pwd);
 }
+
+void	ft_free_alloc(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix[i]);
+	free(matrix);
+}

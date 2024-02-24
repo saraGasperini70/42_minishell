@@ -12,4 +12,20 @@
 
 #include "../builtins.h"
 
-int	ft_is_validenv(char *args);
+int	ft_is_validenv(char *args)
+{
+	int	i;
+
+	i = 0;
+	if (ft_isdigit(args[i]))
+		return (0);
+	while (args[i] && args[i] != '=')
+	{
+		if (!ft_isalnum(args[i]))
+			return (-1);
+		i++;
+	}
+	if (args[i] != '=')
+		return (2);
+	return (1);
+}
