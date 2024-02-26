@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_envname.c                                   :+:      :+:    :+:   */
+/*   ft_sizeenv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 12:51:46 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:28 by sgasperi         ###   ########.fr       */
+/*   Created: 2024/02/26 12:59:28 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/02/26 13:07:14 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../builtins.h"
+#include "../includes/builtins.h"
 
-char	*ft_get_envname(char *dest, char *src)
+int	ft_sizeenv(t_env *lst)
 {
-	int	i;
+	int	lst_len;
 
-	i = 0;
-	while (src[i] && src[i] != '=' && ft_strlen(src) < BUFF_SIZE)
+	lst_len = 0;
+	while (lst && lst->next != NULL)
 	{
-		dest[i] = src[i];
-		i++;
+		if (lst->value != NULL)
+			lst_len += ft_strlen(lst->value);
+		lst = lst->next;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (lst_len);
 }

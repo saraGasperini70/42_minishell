@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:33:58 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 13:19:28 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:04:28 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ typedef struct s_env
 
 void	ft_free_alloc(char **matrix);
 
-void	ft_pwd(t_env *env);
+int		ft_pwd(void);
+
+int		ft_env(t_env *env);
 
 int		ft_echo(char **args);
 char	*ft_alloc_str(int alloc_size);
@@ -57,5 +59,7 @@ void	ft_print_sortedenv(t_env *env);
 int		ft_is_validenv(char *args);
 char	*ft_env_tostr(t_env *lst);
 int		ft_strenv_len(char **env);
+void	ft_sortenv(char **tab, int env_len);
+int		ft_sizeenv(t_env *lst);
 
 #endif

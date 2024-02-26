@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_validenv.c                                   :+:      :+:    :+:   */
+/*   ft_sortenv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 12:34:19 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 16:38:17 by sgasperi         ###   ########.fr       */
+/*   Created: 2024/02/26 12:35:42 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/02/26 12:53:44 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../builtins.h"
+#include "../includes/builtins.h"
 
-int	ft_is_validenv(char *args)
+void	ft_sortenv(char **tab, int env_len)
 {
-	int	i;
+	int		sorted_check;
+	int		i;
+	char	*tmp;
 
-	i = 0;
-	if (ft_isdigit(args[i]))
-		return (0);
-	while (args[i] && args[i] != '=')
+	sorted_check = 0;
+	while (tab && sorted_check == 0)
 	{
-		if (!ft_isalnum(args[i]))
-			return (-1);
-		i++;
+		sorted_check = 1;
+		i = 0;
+		while (i < env_len -1)
+		{
+			if (ft_strncmp(tab[i], tab[i + 1], ft_strlen(tab[i])) > 0)
+			{
+				tmp = tab[i];
+				tab[i] = tab[i + i];
+				tab[i + 1] = tmp;
+				sorted_check = 0;
+			}
+			i++;
+		}
+		env_len--;
 	}
-	if (args[i] != '=')
-		return (2);
-	return (1);
 }

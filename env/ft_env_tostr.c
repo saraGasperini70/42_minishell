@@ -1,37 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd_utils.c                                         :+:      :+:    :+:   */
+/*   ft_env_tostr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 12:44:16 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/26 12:52:57 by sgasperi         ###   ########.fr       */
+/*   Created: 2024/02/26 12:49:02 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/02/26 13:06:34 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/builtins.h"
 
-char	*ft_alloc_str(int alloc_size)
+static char	*ft_alloc_char(t_env *lst)
 {
-	char	*old_pwd;
+	char	*env;
 
-	old_pwd = malloc(sizeof(char) * alloc_size + 1);
-	if (!(old_pwd))
+	env = malloc(sizeof(char) * ft_sizeenv(lst) + 1);
+	if (!env)
 		return (NULL);
-	return (old_pwd);
+	return (env);
 }
 
-void	ft_free_alloc(char **matrix)
+char	*ft_env_tostr(t_env *lst)
 {
-	int	i;
+	char	*env;
+	int		i;
+	int		j;
 
+	env = ft_alloc_char(lst);
 	i = 0;
-	while (matrix[i])
+	while (lst && lst->next != NULL)
 	{
-		free(matrix[i]);
-		i++;
+		if (lst->value != NULL)
+		{
+			j = 0;
+			while (lst->value[j])
+			{
+				env[i] = lst->value[j];
+				i++;
+				j++;
+			}
+			if (lst->next->next == NULL)
+				env[i++] = '\n';
+		}
+		lst = lst->next;
 	}
-	free(matrix[i]);
-	free(matrix);
+	env[i] = '\0';
+	return (env);
 }

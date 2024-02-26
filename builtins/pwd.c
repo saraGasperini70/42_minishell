@@ -6,15 +6,15 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:15:51 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 13:19:07 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:56:37 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../includes/builtins.h"
 
-void	ft_pwd(t_env *env)
+int	ft_pwd(void)
 {
-	char cwd[_PC_PATH_MAX];
+	char	cwd[_PC_PATH_MAX];
 
 	if (getcwd(cwd, _PC_PATH_MAX))
 	{

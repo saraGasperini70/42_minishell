@@ -6,13 +6,13 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:30:02 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/20 14:35:23 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:55:35 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../includes/builtins.h"
 
-void	ft_env(t_env *env)
+int	ft_env(t_env *env)
 {
 	while (env && env->next != NULL)
 	{
