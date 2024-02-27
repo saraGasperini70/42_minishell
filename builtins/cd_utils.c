@@ -35,3 +35,15 @@ void	ft_free_alloc(char **matrix)
 	free(matrix[i]);
 	free(matrix);
 }
+
+void	ft_free_node(t_mini *mini, t_env *env)
+{
+	if (mini->env && mini->env->next == NULL)
+	{
+		ft_memdel(mini->env->value);
+		mini->env->value = NULL;
+		mini->env->next = NULL;
+	}
+	ft_memdel(env->value);
+	ft_memdel(env);
+}
