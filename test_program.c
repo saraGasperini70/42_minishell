@@ -2,6 +2,9 @@
 
 int	main(void)
 {
-	ft_pwd();
-	return(1);
+	t_mini *mini;
+
+	mini = NULL;
+	ft_mini_exit(mini, "ll");
+	return(0);
 }

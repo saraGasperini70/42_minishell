@@ -1,12 +1,15 @@
 NAME = built_ins
 
-SRCS	=	builtins/cd_utils.c \
+SRCS =	builtins/cd_utils.c \
 		builtins/cd.c \
 		builtins/echo.c \
 		builtins/env.c \
+		builtins/exit.c \
 		builtins/export.c \
 		builtins/pwd.c \
+		builtins/unset.c \
 		env/ft_print_sortedenv.c \
+		env/ft_env_len.c \
 		env/ft_env_tostr.c \
 		env/ft_is_validenv.c \
 		env/ft_env_add.c \

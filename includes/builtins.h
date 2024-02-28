@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:33:58 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:29:06 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:11:30 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ int		ft_cd(char **str, t_env *env);
 
 int		ft_export(char **args, t_env *env, t_env *secret);
 
+void	ft_mini_exit(t_mini *mini, char *cmd);
+
+int		ft_unset(char **a, t_mini *mini);
+
+int	ft_env_len(char *env);
 int		ft_isin_env(t_env *env, char *old_pwd);
 int		ft_env_add(const char *old_pwd, t_env *env);
 char	*ft_get_envname(char *dest, char *src);

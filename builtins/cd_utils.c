@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:44:16 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:29:42 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:52:55 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_strisnum(char *str)
 		if (ft_isalnum(str[i]))
 			i++;
 		else
-			return (0);
+			return (ERROR);
 	}
-	return (1);
+	return (SUCCESS);
 }

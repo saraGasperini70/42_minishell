@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 12:13:18 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:41:37 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:59:26 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	ft_mini_exit(t_mini *mini, char *cmd)
 	else
 		ft_putstr_fd("Error", STDERR);
 	if (cmd[1] && cmd[2])
-		ft_putstr("Too many arguments", STDERR);
-	else if (!ft_strisnum(cmd[1]))
+		ft_putstr_fd("Too many arguments", STDERR);
+	else if (ft_strisnum(&cmd[1]) == ERROR)
 	{
 		ft_putstr_fd("exit", STDERR);
 		ft_putstr_fd("numeric argument required", STDERR);
 	}
 	else if (cmd[1])
-		mini->env = ft_atoi(cmd[1]);
+		mini->ret = ft_atoi(&cmd[1]);
 	else
-		mini->env = 0;
+		mini->ret = 0;
 }
