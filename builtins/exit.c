@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 12:13:18 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:59:26 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:21:11 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_mini_exit(t_mini *mini, char *cmd)
 {
+	printf("HEllo\n");
 	mini->exit = 1;
 	ft_putstr_fd("exit", STDERR);
 	if (cmd[1] == SUCCESS)
