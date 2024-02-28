@@ -6,16 +6,16 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:40:00 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:10:52 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:42:25 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 typedef struct s_token
 {
-	char	*str;
-	char	*type;
-	struct	s_token *prev;
-	struct	s_token *next;
+	char			*str;
+	char			*type;
+	struct s_token	*prev;
+	struct s_token	*next;
 }	t_token;
 
 typedef struct s_env
@@ -31,4 +31,5 @@ typedef struct s_mini
 	int		exit;
 	int		in;
 	int		out;
+	int		ret;
 }	t_mini;

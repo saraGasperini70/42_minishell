@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:44:16 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/26 12:52:57 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:29:42 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,19 @@ void	ft_free_node(t_mini *mini, t_env *env)
 	}
 	ft_memdel(env->value);
 	ft_memdel(env);
+}
+
+int	ft_strisnum(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isalnum(str[i]))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }
