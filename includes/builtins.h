@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:33:58 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/26 13:04:28 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:06:43 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUILTINS_H
 
 # include "../libs/libft/libft.h"
+# include "structs.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -25,12 +26,6 @@
 # include <errno.h>
 # include <signal.h>
 
-typedef struct s_env
-{
-	char			*value;
-	struct s_env	*next;
-}	t_env;
-
 # define ERROR 1
 # define SUCCESS 0
 
@@ -41,6 +36,8 @@ typedef struct s_env
 # define BUFF_SIZE 4096
 
 void	ft_free_alloc(char **matrix);
+void	ft_free_node(t_mini *mini, t_env *env);
+char	*ft_alloc_str(int alloc_size);
 
 int		ft_pwd(void);
 

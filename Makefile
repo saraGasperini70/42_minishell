@@ -1,6 +1,21 @@
 NAME = built_ins
 
-SRCS =	builtins/cd_utils.c builtins/cd.c builtins/echo.c builtins/env.c builtins/export.c builtins/pwd.c env/ft_print_sortedenv.c env/ft_env_tostr.c env/ft_is_validenv.c env/ft_env_add.c env/ft_get_envname.c env/ft_isin_env.c env/ft_sizeenv.c env/ft_strenv_len.c env/ft_sortenv.c test_program.c
+SRCS	=	builtins/cd_utils.c \
+		builtins/cd.c \
+		builtins/echo.c \
+		builtins/env.c \
+		builtins/export.c \
+		builtins/pwd.c \
+		env/ft_print_sortedenv.c \
+		env/ft_env_tostr.c \
+		env/ft_is_validenv.c \
+		env/ft_env_add.c \
+		env/ft_get_envname.c \
+		env/ft_isin_env.c \
+		env/ft_sizeenv.c \
+		env/ft_strenv_len.c \
+		env/ft_sortenv.c \
+		test_program.c \
 
 INCS = builtins/
 

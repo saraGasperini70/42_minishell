@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strenv_len.c                                    :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 12:48:50 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:02:20 by sgasperi         ###   ########.fr       */
+/*   Created: 2024/02/28 11:40:00 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/02/28 12:10:52 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/builtins.h"
-
-int	ft_strenv_len(char **env)
+typedef struct s_token
 {
-	int	i;
+	char	*str;
+	char	*type;
+	struct	s_token *prev;
+	struct	s_token *next;
+}	t_token;
 
-	i = 0;
-	while (env[i])
-		i++;
-	return (i);
-}
+typedef struct s_env
+{
+	char			*value;
+	struct s_env	*next;
+}	t_env;
+
+typedef struct s_mini
+{
+	t_env	*env;
+	t_env	*secret_env;
+	int		exit;
+	int		in;
+	int		out;
+}	t_mini;
