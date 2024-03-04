@@ -16,8 +16,9 @@ int	main(int ac, char **av)
 
 	initialize_mini(&mini);
 	if (ac > 1)
+	{
 		if (ft_strncmp(av[1], "exit", ft_strlen(av[1])) == 0)
-			ft_mini_exit(&mini, av[2]);
-		else if (ft_strncmp(av[1], "exit", ft_strlen(av[1])) == 0)
+			ft_mini_exit(&mini, av);
+	}
 	return(SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:44:16 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:52:55 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:09:34 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ int	ft_strisnum(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		if (ft_isalnum(str[i]))
+		printf("\n%d\n", str[i]);
+		if (str[i] >= '0' || str[i] <= '9')
 			i++;
 		else
 			return (ERROR);
