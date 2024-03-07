@@ -54,7 +54,7 @@ void	ft_mini_exit(t_mini *mini, char **cmd);
 
 int		ft_unset(char **a, t_mini *mini);
 
-int	ft_env_len(char *env);
+int		ft_env_len(char *env);
 int		ft_isin_env(t_env *env, char *old_pwd);
 int		ft_env_add(const char *old_pwd, t_env *env);
 char	*ft_get_envname(char *dest, char *src);

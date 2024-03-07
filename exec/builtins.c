@@ -20,6 +20,7 @@ int	ft_is_builtin(char *command)
 int	ft_exec_builtins(char **args, t_mini *mini)
 {
 	int	result;
+
 	if (ft_strncmp(args[0], "echo", ft_strlen(args[0])))
 		return (ft_cd(args, mini->env));
 	if (ft_strncmp(args[0], "env", ft_strlen(args[0])))
@@ -33,5 +34,4 @@ int	ft_exec_builtins(char **args, t_mini *mini)
 	if (ft_strncmp(args[0], "unset", ft_strlen(args[0])))
 		return (ft_unset(args, mini));
 	return (0);
-
 }
