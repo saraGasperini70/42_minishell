@@ -34,6 +34,7 @@
 # define STDERR 2
 
 # define BUFF_SIZE 4096
+# define UNKNOWN_COMMAND 127
 
 void	ft_free_alloc(char **matrix);
 void	ft_free_node(t_mini *mini, t_env *env);
