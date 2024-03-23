@@ -24,6 +24,14 @@ typedef struct s_env
 	struct s_env	*next;
 }	t_env;
 
+typedef struct s_sig
+{
+	int		sigin;
+	int		sigout;
+	int		exit_status;
+	pid_t	pid;
+}	t_sig;
+
 typedef struct s_mini
 {
 	t_env	*env;
