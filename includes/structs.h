@@ -27,17 +27,27 @@ typedef struct s_env
 typedef struct s_sig
 {
 	int		sigin;
-	int		sigout;
+	int		sigquit;
 	int		exit_status;
 	pid_t	pid;
 }	t_sig;
 
 typedef struct s_mini
 {
+	t_token	*start;
 	t_env	*env;
 	t_env	*secret_env;
-	int		exit;
 	int		in;
 	int		out;
+	int		fd_in;
+	int		fd_out;
+	int		pipin;
+	int		pipout;
+	int		pid;
+	int		charge;
+	int		parent;
+	int		last;
 	int		ret;
+	int		exit;
+	int		no_exec
 }	t_mini;

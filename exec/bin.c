@@ -10,6 +10,22 @@ int	error_message(char *path)
 	folder = opendir(path);
 	ft_putstr_fd("minishell: ", STDERR);
 	ft_putstr_fd(path, STDERR);
+	if (ff_strchr(path, '/') == 0)
+		ft_putendl_fd(": command not found", STDERR);
+	else if (fd == -1 && folder == NULL)
+		ft_putendl_fd(": no such file or directory", STDERR);
+	else if (fd == -1 && folder != NULL)
+		ft_putendl_fd(": is a directory", STDERR);
+	else if (fd != -1 && folder == NULL)
+		ft_putendl_fd(": permission denied", STDERR);
+	if (ft_strchr(path, '/') == NULL || fd == -1 && folder == NULL)
+		ret = UNKNOWN_COMMAND;
+	else
+		ret = IS_DIRECTORY;
+	if (folder)
+		closedir(folder);
+	ft_close(fd);
+	return (ret);
 }
 
 char	*check_dir(char *bin, char *command)
@@ -47,7 +63,7 @@ int exec_process2(int sigin, int sigout)
 	return (ret);
 }
 
-int	ft_exec_process(char *path, char **args, t_env *env)
+int	ft_exec_process(char *path, char **args, t_env *env, t_mini *mini)
 {
 	char	**env_array;
 	char	*ptr;
@@ -55,7 +71,7 @@ int	ft_exec_process(char *path, char **args, t_env *env)
 	t_sig	pid;
 
 	ret = SUCCESS;
-	pid->pid = fork();
+	pid.pid = fork();
 	if (pid.pid == 0)
 	{
 		ptr = env_to_str(env);
@@ -65,7 +81,7 @@ int	ft_exec_process(char *path, char **args, t_env *env)
 			execve(path, args, env_array);
 		ret = error_message(path);
 		ft_free_alloc(env_array);
-		ft_free_token(token);
+		ft_free_token(mini->start);
 		exit(ret);
 	}
 	else

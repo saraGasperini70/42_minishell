@@ -18,6 +18,10 @@ SRCS =	builtins/cd_utils.c \
 		env/ft_sizeenv.c \
 		env/ft_strenv_len.c \
 		env/ft_sortenv.c \
+		exec/bin.c \
+		exec/builtins.c \
+		exec/exec.c \
+		exec/utils.c \
 		test_program.c \
 
 INCS = builtins/

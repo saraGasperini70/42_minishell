@@ -32,8 +32,9 @@ int	ft_unset(char **a, t_mini *mini)
 		if (ft_strncmp(a[1], env->next->value,
 				ft_env_len(env->next->value)) == 0)
 		{
-			tmp = env->next;
+			tmp = env->next->next;
 			ft_free_node(mini, env->next);
+			env->next = tmp;
 			return (SUCCESS);
 		}
 		env = env->next;

@@ -35,6 +35,9 @@
 
 # define BUFF_SIZE 4096
 # define UNKNOWN_COMMAND 127
+# define END 7
+# define PIPE 6
+# define IS_DIRECTORY 126
 
 void	ft_free_alloc(char **matrix);
 void	ft_free_node(t_mini *mini, t_env *env);
@@ -66,4 +69,12 @@ int		ft_strenv_len(char **env);
 void	ft_sortenv(char **tab, int env_len);
 int		ft_sizeenv(t_env *lst);
 
+void	exec_cmd(t_mini *mini, t_token *token);
+
+int	ft_exec_bin(char **args, t_env *env, t_mini *mini);
+
+char	*path_join(const char *s1, const char *s2);
+void	ft_close(int fd);
+int		is_type(t_token *token, int type);
+int		has_pipe(t_token *token, int type);
 #endif
