@@ -39,7 +39,7 @@ void	exec_cmd(t_mini *mini, t_token *token)
 	cmd = cmd_tab(token);
 	while (cmd && cmd[i])
 	{
-		cmd = ft_expansions(cmd[i], mini->env, mini->ret);
+		//cmd = ft_expansions(cmd[i], mini->env, mini->ret); parser function?
 		i++;
 	}
 	if (cmd && cmd[0] == "exit" && has_pipe(token) == 0)
