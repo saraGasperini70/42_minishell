@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:40:00 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/02/28 12:42:25 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:47:58 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ typedef struct s_mini
 	int		last;
 	int		ret;
 	int		exit;
-	int		no_exec
+	int		no_exec;
 }	t_mini;

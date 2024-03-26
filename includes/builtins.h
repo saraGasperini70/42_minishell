@@ -6,7 +6,7 @@
 /*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:33:58 by sgasperi          #+#    #+#             */
-/*   Updated: 2024/03/04 13:12:45 by sgasperi         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:08:49 by sgasperi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ft_free_alloc(char **matrix);
 void	ft_free_node(t_mini *mini, t_env *env);
 char	*ft_alloc_str(int alloc_size);
 int		ft_strisnum(char *str);
+void	ft_free_token(t_token *token);
 
 int		ft_pwd(void);
 

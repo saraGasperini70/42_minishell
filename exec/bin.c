@@ -6,11 +6,11 @@ int	error_message(char *path)
 	int	fd;
 	int	ret;
 
-	fd = open(path, 0_WRONLY);
+	fd = open(path, O_WRONLY);
 	folder = opendir(path);
 	ft_putstr_fd("minishell: ", STDERR);
 	ft_putstr_fd(path, STDERR);
-	if (ff_strchr(path, '/') == 0)
+	if (ft_strchr(path, '/') == 0)
 		ft_putendl_fd(": command not found", STDERR);
 	else if (fd == -1 && folder == NULL)
 		ft_putendl_fd(": no such file or directory", STDERR);
@@ -18,7 +18,7 @@ int	error_message(char *path)
 		ft_putendl_fd(": is a directory", STDERR);
 	else if (fd != -1 && folder == NULL)
 		ft_putendl_fd(": permission denied", STDERR);
-	if (ft_strchr(path, '/') == NULL || fd == -1 && folder == NULL)
+	if ((ft_strchr(path, '/') == NULL || fd == -1) && folder == NULL)
 		ret = UNKNOWN_COMMAND;
 	else
 		ret = IS_DIRECTORY;
@@ -32,7 +32,7 @@ char	*check_dir(char *bin, char *command)
 {
 	DIR				*folder;
 	struct dirent	*item;
-	char			path;
+	char			*path;
 
 	path = NULL;
 	folder = opendir(bin);
@@ -41,19 +41,19 @@ char	*check_dir(char *bin, char *command)
 	item = readdir(folder);
 	while (item)
 	{
-		if (ft_strncmp(item->d_name, command) == 0)
+		if (ft_strncmp(item->d_name, command, ft_strlen(item->d_name)) == 0)
 			path = path_join(bin, item->d_name);
 	}
 	closedir(folder);
 	return (path);
 }
 
-int exec_process2(int sigin, int sigout)
+int	exec_process2(int sigin, t_sig pid)
 {
 	int	ret;
 
 	ret = 0;
-	if (sigin == 1 || pid == 1)
+	if (sigin == 1 || pid.pid == 1)
 	{
 		if (ret == 32256)
 			ret = (ret / 256);
@@ -74,7 +74,7 @@ int	ft_exec_process(char *path, char **args, t_env *env, t_mini *mini)
 	pid.pid = fork();
 	if (pid.pid == 0)
 	{
-		ptr = env_to_str(env);
+		ptr = ft_env_tostr(env);
 		env_array = ft_split(ptr, '\n');
 		ft_memdel(ptr);
 		if (ft_strchr(path, '/') != NULL)
@@ -86,7 +86,7 @@ int	ft_exec_process(char *path, char **args, t_env *env, t_mini *mini)
 	}
 	else
 		waitpid(pid.pid, &ret, 0);
-	ret = exec_process2(pid.sigin, pid.sigout);
+	ret = exec_process2(pid.sigin, pid);
 	return (ret);
 }
 
@@ -107,9 +107,9 @@ int	ft_exec_bin(char **args, t_env *env, t_mini *mini)
 	if (!args[0] && !bin[0])
 		return (ERROR);
 	i = 1;
-	path = ft_checkdir(bin[0] + 5, args[0]);
+	path = check_dir(bin[0] + 5, args[0]);
 	while (args[0] && bin[i] && path == NULL)
-		path = ft_checkdir(bin[i++], args[0]);
+		path = check_dir(bin[i++], args[0]);
 	if (path != NULL)
 		result = ft_exec_process(path, args, env, mini);
 	else

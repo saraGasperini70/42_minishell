@@ -34,3 +34,18 @@ int	has_pipe(t_token *token, int type)
 	}
 	return (0);
 }
+
+void	ft_free_token(t_token *token)
+{
+	while (token && token->next)
+	{
+		ft_memdel(token->str);
+		token = token->next;
+		ft_memdel(token->prev);
+	}
+	if (token)
+	{
+		ft_memdel(token->str);
+		ft_memdel(token);
+	}
+}
