@@ -1,4 +1,4 @@
-NAME = built_ins
+NAME = minishell
 
 SRCS =	builtins/cd_utils.c \
 		builtins/cd.c \
@@ -24,7 +24,7 @@ SRCS =	builtins/cd_utils.c \
 		exec/utils.c \
 		test_program.c \
 
-INCS = builtins/
+INCS = includes/
 
 OBJS = ${SRCS:.c=.o}
 
